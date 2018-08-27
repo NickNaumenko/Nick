@@ -1,0 +1,23 @@
+.about__photo-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  background-color: black;
+}
+
+.about__photo {
+  height: 100%;
+}
+
+.about__text {
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  min-height: 50vh;
+}
+
+.about__text-title {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-size: 26px;
+}
