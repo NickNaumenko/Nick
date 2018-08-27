@@ -1,0 +1,52 @@
+.page-header {
+  position: fixed;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+
+  color: #ffffff;
+
+  // background-color: rgba(orange, 0.3);
+}
+
+.page-header--invert {
+  color: #000000;
+}
+
+.page-header__controls {
+  position: relative;
+  z-index: 2;
+
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 30px 20px;
+
+  // outline: 1px solid orange;
+}
+
+.page-header__logo-link {
+  color: inherit;
+  line-height: 0;
+}
+
+.page-header__logo {
+  fill: currentColor;
+}
+
+@media (min-width: $tablet-width) {
+  .page-header__controls {
+    max-width: 1250px;
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .page-header__controls {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

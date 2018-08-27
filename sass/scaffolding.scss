@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  // -----------
+  // outline: 1px solid red;
+
+  max-width: 1250px;
+}
+
+.section-title {
+  @include section-title;
+}
+
+@media (min-width: $tablet-width) {
+  .container {
+    padding: 0 50px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .container {
+    padding: 0 100px;
+  }
+}
+
+
+
