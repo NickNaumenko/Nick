@@ -1,6 +1,7 @@
 const menuButton = document.querySelector(".page-header__button");
 const menu = document.querySelector(".main-nav");
-console.log("hello");
+const menuLinks = document.querySelectorAll(".main-nav__link");
+console.log(menuLinks);
 
 menuButton.addEventListener("click", (evt) => {
   evt.preventDefault();
@@ -8,6 +9,13 @@ menuButton.addEventListener("click", (evt) => {
   menu.classList.toggle("main-nav--shown");
   menuButton.classList.toggle("menu-button--opened");
 });
+
+menuLinks.forEach( (a) => {
+  a.addEventListener("click", (evt) => {
+    menu.classList.remove("main-nav--shown");
+    menuButton.classList.remove("menu-button--opened");
+  })
+})
 
 const header = document.querySelector(".page-header");
 const works = document.querySelector(".works");
