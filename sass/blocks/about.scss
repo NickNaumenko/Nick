@@ -1,11 +1,15 @@
 .about__photo-wrapper {
-  display: flex;
-  justify-content: center;
+  position: relative;
+
   height: 50vh;
   background-color: black;
 }
 
 .about__photo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
   height: 100%;
 }
 
