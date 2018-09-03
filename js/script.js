@@ -31,3 +31,17 @@ window.onscroll = function() {
     header.classList.remove("page-header--invert");
   }
 };
+
+
+
+
+
+const myButton = document.querySelector(".my-button");
+const worksButtons = document.querySelectorAll(".button-link");
+
+myButton.addEventListener("click", function(evt) {
+  evt.preventDefault();
+  worksButtons.forEach( (a) => {
+    a.classList.toggle("button-link--inview");
+  })
+})
