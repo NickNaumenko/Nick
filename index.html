@@ -7,16 +7,21 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic" rel="stylesheet">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body>
+<body class="home-page">
   <div style="display: none;">
     <include src="build/img/sprite.svg"></include>
   </div>
-  <header class="page-header">
+  <header class="page-header menu-hidden">
     <div class="page-header__controls">
       <a class="page-header__logo-link" href="">
         <svg class="page-header__logo" width="32" height="40">
           <use xlink:href="#logo-2"></use>
         </svg>
+        <span class="page-header__logo-text">
+          <span class="page-header__logo-text-inner">
+            aumenko
+          </span>
+        </span>
       </a>
       <button class="page-header__button menu-button">
         <span class="visually-hidden">Menu</span>
@@ -48,24 +53,24 @@
           </li>
         </ul>
         <ul class="main-nav__socials socials">
-          <li class="socials__item">
-            <a class="socials__link" href="">
+          <li class="main-nav__social-item socials__item">
+            <a class="main-nav__social-link socials__link" href="">
               <span class="visually-hidden">Facebook</span>
               <svg class="socials__icon">
                 <use xlink:href="#icon-fb"></use>
               </svg>
             </a>
           </li>
-          <li class="socials__item">
-            <a class="socials__link" href="">
+          <li class="main-nav__social-item socials__item">
+            <a class="main-nav__social-link socials__link" href="">
               <span class="visually-hidden">Twitter</span>
               <svg class="socials__icon">
                 <use xlink:href="#icon-tw-2"></use>
               </svg>
             </a>
           </li>
-          <li class="socials__item">
-            <a class="socials__link" href="">
+          <li class="main-nav__social-item socials__item">
+            <a class="main-nav__social-link socials__link" href="">
               <span class="visually-hidden">Github</span>
               <svg class="socials__icon">
                 <use xlink:href="#icon-gh-2"></use>
@@ -74,7 +79,6 @@
           </li>
         </ul>
       </div>
-
     </nav>
   </header>
 

@@ -1,19 +1,20 @@
-const menuButton = document.querySelector(".page-header__button");
+const menuButton = document.querySelector(".menu-button");
 const menu = document.querySelector(".main-nav");
 const menuLinks = document.querySelectorAll(".main-nav__link");
 console.log(menuLinks);
+const body = document.querySelector(".home-page");
 
 menuButton.addEventListener("click", (evt) => {
   evt.preventDefault();
 
-  menu.classList.toggle("main-nav--shown");
-  menuButton.classList.toggle("menu-button--opened");
+  menu.classList.toggle("main-nav--hidden");
+  // menuButton.classList.toggle("menu-button--opened");
+  body.classList.toggle("menu-opened");
 });
 
 menuLinks.forEach( (a) => {
   a.addEventListener("click", (evt) => {
-    menu.classList.remove("main-nav--shown");
-    menuButton.classList.remove("menu-button--opened");
+    body.classList.remove("menu-opened");
   })
 })
 
