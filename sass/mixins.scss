@@ -9,6 +9,9 @@
   display: flex;
   margin: 0;
 
+  font-size: 27px;
+  line-height: 27px;
+
   &::before {
     content: "";
     min-width: 1px;
@@ -18,5 +21,10 @@
     align-self: center;
 
     background-color: currentColor;
+  }
+
+  @media (min-width: $tablet-width) {
+    font-size: 36px;
+    line-height: 36px;
   }
 }

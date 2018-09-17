@@ -19,13 +19,13 @@
 
 .contacts__links-set {
   align-self: center;
+
+  text-align: center;
 }
 
 .contacts__text {
   display: none;
   margin: 0;
-
-  font-size: 0;
 }
 
 .contacts__email-link {
@@ -61,4 +61,54 @@
   text-align: center;
   font-size: 14px;
   letter-spacing: 2px;
+}
+
+@media (min-width: $tablet-width) {
+  .contacts__text {
+    display: block;
+    margin-bottom: 30px;
+
+    color: rgba(#ffffff, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 7px;
+  }
+
+  .contacts__email-link {
+    width: auto;
+    height: auto;
+    margin-bottom: 100px;
+
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #ffffff;
+
+    background: none;
+  }
+
+  .contacts__email-icon {
+    display: none;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .contacts__text {
+    margin-bottom: 50px;
+  }
+
+  .contacts__email-link {
+    margin-bottom: 150px;
+    font-size: 48px;
+    line-height: 48px;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
 }
