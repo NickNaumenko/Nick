@@ -48,6 +48,7 @@
   color: #ffffff;
 
   letter-spacing: 1px;
+  transition: 0.5s;
 
   &::before {
     content: "";
@@ -67,6 +68,7 @@
 
   &:hover {
     color: rgba(#ffffff, 0.5);
+    letter-spacing: 4px;
   }
 
   &:active {
@@ -115,7 +117,7 @@
   }
 
   .main-nav__link {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 22px;
   }
 }

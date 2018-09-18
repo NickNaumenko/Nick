@@ -6,8 +6,10 @@
   background-image: url("../img/intro-back-mobile-1x.jpg");
   background-color: #000000;
   background-position: center;
-  background-size: 768px auto;
+  // background-size: 768px auto;
   background-repeat: no-repeat;
+
+  animation: scale-moon-mobile 2s  1s ease-in both;
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
     background-image: url("../img/intro-back-mobile-2x.jpg");
@@ -15,14 +17,15 @@
 
   &::before {
     content: "";
-    display: block;
+    // display: block;
     position: absolute;
     width: 100%;
     height: 100%;
 
     background-color: black;
 
-    animation: show-intro 5s 1s ease-in both;
+    animation: show-intro 2.5s 1s ease-in-out both;
+
   }
 }
 
@@ -33,6 +36,26 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes scale-moon-mobile {
+  0% {
+    background-size: 600px;
+  }
+
+  100% {
+    background-size: 768px;
+  }
+}
+
+@keyframes scale-moon-desktop {
+  0% {
+    background-size: 1000px;
+  }
+
+  100% {
+    background-size: 1250px;
   }
 }
 
@@ -73,6 +96,8 @@
   .intro {
     background-image: url("../img/intro-back-desktop-1x.jpg");
     background-size: 1250px auto;
+
+    animation: scale-moon-desktop 2s  1s ease-in both;
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       background-image: url("../img/intro-back-desktop-2x.jpg");

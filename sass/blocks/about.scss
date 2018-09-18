@@ -50,8 +50,8 @@
   }
 
   .about__photo-wrapper {
-    width: 500px;
-    height: 500px;
+    width: 66.66%;
+    height: auto;
     padding: 0;
   }
 
@@ -60,14 +60,16 @@
   }
 
   .about__text {
-    width: 55%;
+    box-sizing: border-box;
+    width: calc(66.66%);
     align-self: flex-end;
-    margin-top: -70px;
-    padding: 70px 100px;
+    margin-top: -90px;
+    padding: 5% 7%;
 
     line-height: 30px;
     letter-spacing: 1px;
 
+    border: 1px solid rgba(#000000, 0.2);
     background-color: white;
   }
 
@@ -80,6 +82,6 @@
 
 @media (min-width: $desktop-width) {
   .about__photo-wrapper {
-    width: 600px
+    // width: 600px
   }
 }

@@ -55,13 +55,15 @@ input[type="radio"].visually-hidden {
 
 @media (min-width: $tablet-width) {
   .container {
+    max-width: 1060px;
     padding: 0 50px;
   }
 }
 
 @media (min-width: $desktop-width) {
   .container {
-    padding: 0 100px;
+    // max-width: 1250px;
+    // padding: 0 100px;
   }
 }
 
