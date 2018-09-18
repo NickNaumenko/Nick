@@ -20,7 +20,8 @@ menuLinks.forEach( (a) => {
 
 const header = document.querySelector(".page-header");
 const works = document.querySelector(".works");
-const about = document.querySelector(".about__text");
+const about = document.querySelector(".about");
+const worksList = document.querySelectorAll(".works__item");
 
 window.onscroll = function() {
   let whiteSections = [works, about].map( (a) => a.getBoundingClientRect());
