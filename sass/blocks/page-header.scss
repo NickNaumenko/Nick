@@ -5,18 +5,10 @@
   width: 100%;
 
   color: #ffffff;
-
-  // background-color: rgba(orange, 0.3);
 }
 
 .page-header--invert {
   color: #000000;
-}
-
-.menu-opened {
-  .page-header {
-    color: #ffffff;
-  }
 }
 
 .page-header__controls {
@@ -29,8 +21,6 @@
   width: 100%;
   margin: 0 auto;
   padding: 30px 30px 20px;
-
-  // outline: 1px solid orange;
 }
 
 .page-header__logo-link {
@@ -85,63 +75,3 @@
     }
   }
 }
-
-
-// .page-header__line {
-//   position: absolute;
-//   top: 50px;
-//   right: 25px;
-
-//   display: block;
-//   width: 10px;
-//   height: 10px;
-
-//   background-color: red;
-
-//   animation: line-up 1s both, line-shrink 1s 1s both;
-// }
-
-// .menu-opened {
-//   .page-header__line {
-//     animation: line-widen 1s both,
-//       line-down 1s 1s both;
-//   }
-// }
-
-// @keyframes line-widen {
-//   0% {
-//     width: 10px;
-//   }
-
-//   100% {
-//     width: calc(100% - 100px);
-//   }
-// }
-
-// @keyframes line-up {
-//   0% {
-//     transform: translateY(200px);
-//   }
-//   100% {
-//     transform: translateY(0);
-//   }
-// }
-
-// @keyframes line-shrink {
-//   0% {
-//     width: 100%;
-//   }
-
-//   100% {
-//     width: 10px;
-//   }
-// }
-
-// @keyframes line-down {
-//   0% {
-//     transform: translateY(0);
-//   }
-//   100% {
-//     transform: translateY(200px);
-//   }
-// }

@@ -89,10 +89,8 @@
   }
 }
 
-.menu-opened {
-  .main-nav {
-    transform: translateY(0);
-  }
+.main-nav--opened {
+  transform: translateY(0);
 
   .main-nav__link {
     animation: show-top 0.6s 1s backwards;

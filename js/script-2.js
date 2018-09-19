@@ -9,7 +9,7 @@ const buttonNext = document.querySelector(".slider__next");
 function Slider(slider) {
   this._slider = document.querySelector(slider);
   this._frame = this._slider.querySelector(".slider__frame");
-  console.log(this._frame);
+  // console.log(this._frame);
   this._prev = this._slider.querySelector(".slider__prev");
   this._next = this._slider.querySelector(".slider__next");
   this._path = 0;
@@ -62,5 +62,5 @@ buttonNext.addEventListener("click", (event) => {
 });
 
 list.addEventListener("touchmove", (event) => {
-  console.log(event);
+  // console.log(event);
 })

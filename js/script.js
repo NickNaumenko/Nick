@@ -33,3 +33,28 @@ window.onscroll = function() {
     header.classList.remove("page-header--invert");
   }
 };
+
+
+// --------
+const scrollbar = (function() {
+  const div = document.createElement("div");
+  div.style.cssText = "width: 50px; \
+    height: 50px;\
+    overflow: scroll;\
+  ";
+  body.appendChild(div);
+  console.log(div);
+
+  let scrollbar = div.offsetWidth - div.clientWidth;
+  body.removeChild(div);
+
+  return scrollbar;
+})();
+
+function alignMenu() {
+  if (!scrollbar) return;
+
+}
+
+console.log(scrollbar);
+
