@@ -1,5 +1,4 @@
 const body = document.body;
-const menuButton = document.querySelector(".page-header__button");
 const pageHeader = document.querySelector(".page-header");
 
 const scrollbar = (function() {
@@ -63,7 +62,6 @@ function Menu(options) {
   }
 
   button.addEventListener("click", (event) => {
-    console.log("Hello, Nick");
     toggle();
   })
 }
@@ -87,6 +85,7 @@ body.addEventListener("close", () => {
 let timerId;
 
 pageHeader.addEventListener("open", () => {
+  pageHeader.classList.add("menu-opened");
   pageHeader.style.paddingRight = `${scrollbar}px`;
 
   if (!timerId) {
@@ -98,16 +97,13 @@ pageHeader.addEventListener("open", () => {
 });
 
 pageHeader.addEventListener("close", () => {
+  pageHeader.classList.remove("menu-opened");
   pageHeader.style.paddingRight = "";
 
   timerId = setTimeout(function() {
     pageHeader.style.color = "";
     timerId = false;
   }, 500);
-});
-
-menuButton.addEventListener("click", () => {
-  menuButton.classList.toggle("menu-button--closed");
 });
 
 
