@@ -93,6 +93,8 @@
   &:active {
     .preview__description {
       display: block;
+
+      animation: 1s mask-preview both;
     }
   }
 }

@@ -17,6 +17,7 @@ const svgstore = require("gulp-svgstore");
 const run = require("run-sequence");
 const minify = require('gulp-minify');
 const cheerio = require("gulp-cheerio");
+const ghPages = require('gulp-gh-pages');
 
 gulp.task("style", () => {
   gulp.src("sass/style.scss")
@@ -128,4 +129,10 @@ gulp.task("build", (done) => {
     "js",
     done
   );
+});
+
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
 });
