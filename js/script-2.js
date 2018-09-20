@@ -33,7 +33,7 @@ Slider.prototype.showPrev = function() {
 
 
 
-// if (window.matchMedia("(min-width: 768px)").matches) {
+if (window.matchMedia("(min-width: 768px)").matches) {
   const s = new Slider(".slider");
 
   list.addEventListener("wheel", (event) => {
@@ -64,22 +64,28 @@ Slider.prototype.showPrev = function() {
 
 
 
-  let touches;
   list.addEventListener("touchmove", handleMove);
+  list.addEventListener("touchend", handleEnd);
+
+  let firstTouch = 0, touches;
+
   function handleMove(event) {
     event.preventDefault();
     touches = event.changedTouches;
-    let firstTouch = event.changedTouches[0].screenX;
-    if (touches[0] - touches[touches.length - 1] > 0) {
-      alert("hello");
-      s.showNext();
-    } else if (touches[0] - touches[touches.length - 1] < 0) {
-      alert("hello");
-      s.showPrev();
-    }
-
-
+    firstTouch = firstTouch ? firstTouch : event.changedTouches[0].screenX;
   }
 
-  setTimeout(function() {alert( touches.length)}, 2000);
-// }
+  function handleEnd(event) {
+    console.log(firstTouch);
+    console.log(touches[0].screenX);
+    if (!firstTouch) return;
+
+    if (touches[0].screenX - firstTouch > 0) {
+      s.showPrev();
+      firstTouch = 0;
+    } else if (touches[0].screenX - firstTouch < 0) {
+      s.showNext();
+      firstTouch = 0;
+    }
+  }
+}
