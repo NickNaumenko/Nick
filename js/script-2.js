@@ -33,7 +33,7 @@ Slider.prototype.showPrev = function() {
 
 
 
-if (window.matchMedia("(min-width: 768px)").matches) {
+// if (window.matchMedia("(min-width: 768px)").matches) {
   const s = new Slider(".slider");
 
   list.addEventListener("wheel", (event) => {
@@ -63,11 +63,19 @@ if (window.matchMedia("(min-width: 768px)").matches) {
   });
 
   list.addEventListener("touchmove", handleMove);
-
+alert("hy");
   function handleMove(event) {
     event.preventDefault();
     let touches = event.changedTouches;
+    alert("hi");
     let firstTouch = event.changedTouches[0].screenX;
+    if (touches[0] - touches[touches.length - 1] > 0) {
+      alert("hello");
+      s.showNext();
+    } else if (touches[0] - touches[touches.length - 1] < 0) {
+      alert("hello");
+      s.showPrev();
+    }
     console.log(touches);
   }
-}
+// }
