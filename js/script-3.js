@@ -20,6 +20,8 @@ function Menu(options) {
   const menu = options.menu;
   const button = options.button;
 
+  menu.style.transition = "transform 0.8s";
+
   menu.onclick = function(event) {
     if (event.target.classList.contains("main-nav__link") ||
       event.target.classList.contains("main-nav__social-link")) {
@@ -36,12 +38,8 @@ function Menu(options) {
   }
 
   function open() {
-    menu.style.visibility = "visible";
     menu.style.paddingRight = `${scrollbar}px`;
-    setTimeout(function() {
-      menu.classList.add("main-nav--opened");
-
-    }, 4);
+    menu.classList.add("main-nav--opened");
 
     isOpen = true;
 
