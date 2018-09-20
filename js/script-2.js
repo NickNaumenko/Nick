@@ -62,10 +62,13 @@ Slider.prototype.showPrev = function() {
     s.showNext();
   });
 
+
+
+  let touches;
   list.addEventListener("touchmove", handleMove);
   function handleMove(event) {
     event.preventDefault();
-    let touches = event.changedTouches;
+    touches = event.changedTouches;
     let firstTouch = event.changedTouches[0].screenX;
     if (touches[0] - touches[touches.length - 1] > 0) {
       alert("hello");
@@ -74,6 +77,9 @@ Slider.prototype.showPrev = function() {
       alert("hello");
       s.showPrev();
     }
-    alert(touches.length);
+
+
   }
+
+  setTimeout(function() {alert(touches)}, 1000);
 // }
