@@ -1,25 +1,27 @@
-const menuButton = document.querySelector(".page-header__button");
+const menuButton = document.querySelector(".menu-button");
 const menu = document.querySelector(".main-nav");
 const menuLinks = document.querySelectorAll(".main-nav__link");
 console.log(menuLinks);
+const body = document.querySelector(".home-page");
 
 menuButton.addEventListener("click", (evt) => {
   evt.preventDefault();
 
-  menu.classList.toggle("main-nav--shown");
-  menuButton.classList.toggle("menu-button--opened");
+  menu.classList.toggle("main-nav--hidden");
+  // menuButton.classList.toggle("menu-button--opened");
+  body.classList.toggle("menu-opened");
 });
 
 menuLinks.forEach( (a) => {
   a.addEventListener("click", (evt) => {
-    menu.classList.remove("main-nav--shown");
-    menuButton.classList.remove("menu-button--opened");
+    body.classList.remove("menu-opened");
   })
 })
 
 const header = document.querySelector(".page-header");
 const works = document.querySelector(".works");
-const about = document.querySelector(".about__text");
+const about = document.querySelector(".about");
+const worksList = document.querySelectorAll(".works__item");
 
 window.onscroll = function() {
   let whiteSections = [works, about].map( (a) => a.getBoundingClientRect());
@@ -33,15 +35,26 @@ window.onscroll = function() {
 };
 
 
+// --------
+const scrollbar = (function() {
+  const div = document.createElement("div");
+  div.style.cssText = "width: 50px; \
+    height: 50px;\
+    overflow: scroll;\
+  ";
+  body.appendChild(div);
+  console.log(div);
 
+  let scrollbar = div.offsetWidth - div.clientWidth;
+  body.removeChild(div);
 
+  return scrollbar;
+})();
 
-const myButton = document.querySelector(".my-button");
-const worksButtons = document.querySelectorAll(".button-link");
+function alignMenu() {
+  if (!scrollbar) return;
 
-myButton.addEventListener("click", function(evt) {
-  evt.preventDefault();
-  worksButtons.forEach( (a) => {
-    a.classList.toggle("button-link--inview");
-  })
-})
+}
+
+console.log(scrollbar);
+
