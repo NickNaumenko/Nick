@@ -11,7 +11,6 @@ const scrollbar = (function() {
 
   const scrollbar = div.offsetWidth - div.clientWidth;
   body.removeChild(div);
-  console.log(scrollbar);
 
   return scrollbar;
 })();
@@ -20,7 +19,6 @@ const scrollbar = (function() {
 function Menu(options) {
   const menu = options.menu;
   const button = options.button;
-  console.log(button);
 
   menu.onclick = function(event) {
     if (event.target.classList.contains("main-nav__link") ||
@@ -38,8 +36,13 @@ function Menu(options) {
   }
 
   function open() {
-    menu.classList.add("main-nav--opened");
-    console.log("menu-opened");
+    menu.style.visibility = "visible";
+    menu.style.paddingRight = `${scrollbar}px`;
+    setTimeout(function() {
+      menu.classList.add("main-nav--opened");
+
+    }, 4);
+
     isOpen = true;
 
     const menuEvent = new Event("open", {
@@ -50,8 +53,9 @@ function Menu(options) {
   }
 
   function close() {
+    menu.style.paddingRight = "";
     menu.classList.remove("main-nav--opened");
-    console.log("menu-closed");
+
     isOpen = false;
 
     const menuEvent = new Event("close", {
@@ -107,6 +111,7 @@ pageHeader.addEventListener("close", () => {
 });
 
 
+// --invert header------------
 const works = document.querySelector(".works");
 const about = document.querySelector(".about");
 
