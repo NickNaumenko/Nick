@@ -33,7 +33,7 @@ Slider.prototype.showPrev = function() {
 
 
 
-if (window.matchMedia("(min-width: 768px)").matches) {
+// if (window.matchMedia("(min-width: 768px)").matches) {
   const s = new Slider(".slider");
 
   list.addEventListener("wheel", (event) => {
@@ -76,4 +76,4 @@ if (window.matchMedia("(min-width: 768px)").matches) {
     }
     alert(touches.length);
   }
-}
+// }
