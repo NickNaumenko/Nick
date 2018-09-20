@@ -81,5 +81,5 @@ Slider.prototype.showPrev = function() {
 
   }
 
-  setTimeout(function() {alert( touches[1])}, 2000);
+  setTimeout(function() {alert( touches.length)}, 2000);
 // }
