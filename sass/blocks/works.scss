@@ -12,6 +12,7 @@
 }
 
 .works__list {
+  position: absolute;
   @include list-style-reset;
 }
 
@@ -108,8 +109,6 @@
   .works__list {
     padding-bottom: 30px;
     display: flex;
-    justify-content: center;
-    transition: transform 1s;
   }
 
   .works__item {

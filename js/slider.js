@@ -4,6 +4,7 @@ function Slider(slider) {
   this.items = this.frame.children;
   this.itemsCount = this.items.length;
   this.position = 0;
+  this.isAnimated = false;
 };
 
 Slider.prototype.init = function() {
@@ -34,10 +35,10 @@ Slider.prototype.smoothScroll = function(finish) {
   let speed = 10;
   let time = distance / speed;
 
-  console.log([start, finish]);
-
   function scroll() {
     if (start < finish) {
+      self.isAnimated = true;
+
       start += speed;
       start = start < finish ? start : finish;
 
@@ -45,9 +46,9 @@ Slider.prototype.smoothScroll = function(finish) {
         self.frame.style.transform = `translateX(${start}px)`;
         scroll();
       }, 8);
-    }
+    } else if (start > finish) {
+      self.isAnimated = true;
 
-    if (start > finish) {
       start -= speed;
       start = start > finish ? start : finish;
 
@@ -55,7 +56,7 @@ Slider.prototype.smoothScroll = function(finish) {
         self.frame.style.transform = `translateX(${start}px)`;
         scroll();
       }, 8);
-    }
+    } else  self.isAnimated = false;
   }
 
   scroll();
@@ -84,12 +85,16 @@ Slider.prototype.align = function(shift) {
 };
 
 Slider.prototype.moveLeft = function() {
+  if (this.isAnimated) return;
+
   this.moveTo();
   this.position--;
   this.smoothScroll( this.position * 580 );
 };
 
 Slider.prototype.moveRight = function() {
+  if (this.isAnimated) return;
+
   this.moveTo();
   this.position++;
   this.smoothScroll( this.position * 580 );
@@ -157,9 +162,10 @@ Slider.prototype.drag = function(events) {
 
 Slider.prototype.wheel = function() {
   const self = this;
+
   function onWheel(event) {
     let delta = event.deltaY || event.detail || event.wheelDelta;
-    console.log(delta);
+
     if (delta < 0) self.moveRight();
     if (delta > 0) self.moveLeft();
 
@@ -176,13 +182,12 @@ s.drag(["mousedown", "mousemove", "mouseup"]);
 s.drag(["touchstart", "touchmove", "touchend"]);
 s.wheel();
 
-console.log(s);
-console.log(s.items[s.itemsCount]);
-const next = document.querySelector("#next");
+
+const next = document.querySelector(".slider__next");
 next.onclick = function(event) {
   s.moveRight();
 }
-const prev = document.querySelector("#prev");
+const prev = document.querySelector(".slider__prev");
 prev.onclick = function(event) {
   s.moveLeft();
 }
