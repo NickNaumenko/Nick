@@ -24,6 +24,8 @@ Slider.prototype.init = function() {
     this.items[i + this.itemsCount].style.position = "absolute";
     this.items[i + this.itemsCount].style.left = `${i * 580}px`;
   }
+
+  // this.slider.style.left = `${-this.itemsCount * 580}px`;
 };
 
 
@@ -176,27 +178,31 @@ Slider.prototype.wheel = function() {
 }
 
 Slider.prototype.animate = function() {
-  for (let i = 0; i < this.itemsCount * 2; i++) {
-    console.log(this.items[i + this.itemsCount]);
-    this.items[i + this.itemsCount].classList.add("preview--in-view");
-    this.items[i + this.itemsCount].style.animationDelay = `${0.3 * i}s`;
+  console.log(this.items.length);
+  for (let i = 0; i < this.items.length; i++) {
+    this.items[i].classList.add("preview--in-view");
+    if (i >= this.itemsCount) {
+      this.items[i].style.animationDelay = `${0.3 * (i - 3)}s`;
+    }
   }
 }
 
 
-const s = new Slider(".slider");
-s.init();
-s.drag(["mousedown", "mousemove", "mouseup"]);
-s.drag(["touchstart", "touchmove", "touchend"]);
-s.wheel();
-s.animate();
+if (window.matchMedia("(min-width: 768px)").matches) {
+  const s = new Slider(".slider");
+  s.init();
+  s.drag(["mousedown", "mousemove", "mouseup"]);
+  s.drag(["touchstart", "touchmove", "touchend"]);
+  s.wheel();
+  s.animate();
 
 
-const next = document.querySelector(".slider__next");
-next.onclick = function(event) {
-  s.moveRight();
-}
-const prev = document.querySelector(".slider__prev");
-prev.onclick = function(event) {
-  s.moveLeft();
+  const next = document.querySelector(".slider__next");
+  next.onclick = function(event) {
+    s.moveRight();
+  }
+  const prev = document.querySelector(".slider__prev");
+  prev.onclick = function(event) {
+    s.moveLeft();
+  }
 }
