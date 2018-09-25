@@ -173,10 +173,10 @@ function isVisible(elem) {
   return topVisible || bottomVisible;
 }
 
-window.addEventListener("scroll", function() {
-  let a = isVisible(document.querySelector(".slider"));
-  if (a) s.animate();
-});
+// window.addEventListener("scroll", function() {
+//   let a = isVisible(document.querySelector(".slider"));
+//   if (a) s.animate();
+// });
 
 
 isVisible(document.querySelector(".slider"));
