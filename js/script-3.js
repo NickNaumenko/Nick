@@ -153,33 +153,32 @@ function doScrolling(elementY, duration) {
   })
 }
 
-document.querySelector(".scroll-down-button--intro").onclick = function() {
+document.querySelector(".intro__scroll-down-button").onclick = function() {
   console.log("click");
   const a = getElementY( document.querySelector(".works") );
   console.log(a);
   doScrolling(a, 400);
 }
 
-document.querySelector(".scroll-down-button--works").onclick = function() {
+document.querySelector(".works__scroll-down-button").onclick = function() {
   console.log("click");
-  // document.querySelector(".works").scrollIntoView({behavior: "smooth"});
   const a = getElementY( document.querySelector(".about") );
   console.log(a);
   doScrolling(a, 400);
 }
 
-// function isVisible(elem) {
-//   const coords = elem.getBoundingClientRect();
-//   const windowHeigt = document.documentElement.clientHeight;
+function isVisible(elem) {
+  const coords = elem.getBoundingClientRect();
+  const windowHeigt = document.documentElement.clientHeight;
 
-//   const topVisible = coords.top > 0 && coords.bottom < windowHeigt;
-//   const bottomVisible = coords.bottom < windowHeigt && coords.bottm > 0;
-//   console.log([coords.top, topVisible || bottomVisible]);
+  const topVisible = coords.top > 0 && coords.bottom < windowHeigt;
+  const bottomVisible = coords.bottom < windowHeigt && coords.bottm > 0;
+  console.log([coords.top, topVisible || bottomVisible]);
 
-//   return topVisible || bottomVisible;
-// }
+  return topVisible || bottomVisible;
+}
 
-// window.addEventListener("scroll", function() {
-//   let a = isVisible(document.querySelector(".slider"));
-//   if (a) s.animate();
-// });
+window.addEventListener("scroll", function() {
+  let a = isVisible(document.querySelector(".slider"));
+  if (a) s.animate();
+});
