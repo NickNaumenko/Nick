@@ -1,60 +1,31 @@
-const menuButton = document.querySelector(".menu-button");
-const menu = document.querySelector(".main-nav");
-const menuLinks = document.querySelectorAll(".main-nav__link");
-console.log(menuLinks);
-const body = document.querySelector(".home-page");
+const lib = ["what the fuck?",
+  "No fucking way!",
+  "Horse pee hole!",
+  "To bullshit",
+  "Fucking-digging!",
+  "Holly Fuck!",
+  "That’s it, you’re fuckin' dead",
+  "Fuck off",
+  "Get the fuck away from me",
+  "All fucked-up",
+  "I’m sick of it all",
+  "Hard fucking dick",
+  "Pee hole dandruff",
+  "Don’t fuck my brain!"
+];
 
-menuButton.addEventListener("click", (evt) => {
-  evt.preventDefault();
+function wtf(a) {
+    let time = Math.random() * 10000;
+    let phrase = randomInteger(0, 13);
+    console.log(lib[phrase]);
 
-  menu.classList.toggle("main-nav--hidden");
-  // menuButton.classList.toggle("menu-button--opened");
-  body.classList.toggle("menu-opened");
-});
-
-menuLinks.forEach( (a) => {
-  a.addEventListener("click", (evt) => {
-    body.classList.remove("menu-opened");
-  })
-})
-
-const header = document.querySelector(".page-header");
-const works = document.querySelector(".works");
-const about = document.querySelector(".about");
-const worksList = document.querySelectorAll(".works__item");
-
-window.onscroll = function() {
-  let whiteSections = [works, about].map( (a) => a.getBoundingClientRect());
-
-  if ( !header.classList.contains(".page-header--invert")
-    && whiteSections.some( (a) => a.top < 50 && a.bottom > 50 ) ) {
-    header.classList.add("page-header--invert");
-  } else {
-    header.classList.remove("page-header--invert");
-  }
-};
-
-
-// --------
-const scrollbar = (function() {
-  const div = document.createElement("div");
-  div.style.cssText = "width: 50px; \
-    height: 50px;\
-    overflow: scroll;\
-  ";
-  body.appendChild(div);
-  console.log(div);
-
-  let scrollbar = div.offsetWidth - div.clientWidth;
-  body.removeChild(div);
-
-  return scrollbar;
-})();
-
-function alignMenu() {
-  if (!scrollbar) return;
-
+    setTimeout(wtf, time);
 }
 
-console.log(scrollbar);
+function randomInteger(min, max) {
+  var rand = min - 0.5 + Math.random() * (max - min + 1)
+  rand = Math.round(rand);
+  return rand;
+}
 
+wtf();
