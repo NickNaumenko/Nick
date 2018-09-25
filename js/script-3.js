@@ -167,3 +167,19 @@ document.querySelector(".scroll-down-button--works").onclick = function() {
   console.log(a);
   doScrolling(a, 400);
 }
+
+// function isVisible(elem) {
+//   const coords = elem.getBoundingClientRect();
+//   const windowHeigt = document.documentElement.clientHeight;
+
+//   const topVisible = coords.top > 0 && coords.bottom < windowHeigt;
+//   const bottomVisible = coords.bottom < windowHeigt && coords.bottm > 0;
+//   console.log([coords.top, topVisible || bottomVisible]);
+
+//   return topVisible || bottomVisible;
+// }
+
+// window.addEventListener("scroll", function() {
+//   let a = isVisible(document.querySelector(".slider"));
+//   if (a) s.animate();
+// });
