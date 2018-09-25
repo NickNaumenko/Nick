@@ -115,6 +115,103 @@ input[type="radio"].visually-hidden {
     -webkit-transform: translateX(0);
             transform: translateX(0); } }
 
+.scroll-down-button {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  margin-left: -15px;
+  display: block;
+  width: 30px;
+  height: 60px;
+  padding: 0 5px;
+  color: #ffffff;
+  border: none;
+  background-color: transparent;
+  outline: none; }
+
+.scroll-down-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  display: block;
+  width: 2px;
+  height: 1px;
+  background-color: currentColor;
+  -webkit-animation: scroll-down-button-animation 2s ease-in backwards infinite;
+          animation: scroll-down-button-animation 2s ease-in backwards infinite;
+  -webkit-transform-origin: top bottom;
+          transform-origin: top bottom; }
+
+.scroll-down-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 13px;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 6px;
+  height: 6px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: currentColor; }
+
+.scroll-down-button:hover {
+  cursor: pointer; }
+
+.scroll-down-button:hover::before {
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s; }
+
+.scroll-down-button:active::before {
+  -webkit-animation: animation-down 0.3s both;
+          animation: animation-down 0.3s both; }
+
+@-webkit-keyframes scroll-down-button-animation {
+  0% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, -30);
+            transform: matrix(1, 0, 0, 1, 0, -30); }
+  50% {
+    -webkit-transform: matrix(1, 0, 0, 45, 0, 22);
+            transform: matrix(1, 0, 0, 45, 0, 22); }
+  100% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 45);
+            transform: matrix(1, 0, 0, 1, 0, 45); } }
+
+@keyframes scroll-down-button-animation {
+  0% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, -30);
+            transform: matrix(1, 0, 0, 1, 0, -30); }
+  50% {
+    -webkit-transform: matrix(1, 0, 0, 45, 0, 22);
+            transform: matrix(1, 0, 0, 45, 0, 22); }
+  100% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 45);
+            transform: matrix(1, 0, 0, 1, 0, 45); } }
+
+@-webkit-keyframes animation-down {
+  0% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, -5);
+            transform: matrix(1, 0, 0, 1, 0, -5); }
+  50% {
+    -webkit-transform: matrix(1, 0, 0, 35, 0, 35);
+            transform: matrix(1, 0, 0, 35, 0, 35); }
+  100% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 55);
+            transform: matrix(1, 0, 0, 1, 0, 55); } }
+
+@keyframes animation-down {
+  0% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, -5);
+            transform: matrix(1, 0, 0, 1, 0, -5); }
+  50% {
+    -webkit-transform: matrix(1, 0, 0, 35, 0, 35);
+            transform: matrix(1, 0, 0, 35, 0, 35); }
+  100% {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 55);
+            transform: matrix(1, 0, 0, 1, 0, 55); } }
+
 .page-header {
   position: fixed;
   z-index: 1;
@@ -485,6 +582,7 @@ input[type="radio"].visually-hidden {
     background-size: 1250px; } }
 
 .intro__wrapper {
+  position: relative;
   height: 100%; }
 
 .intro__name {
