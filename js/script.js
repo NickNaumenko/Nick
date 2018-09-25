@@ -16,10 +16,10 @@ const lib = ["what the fuck?",
 
 function wtf(a) {
     let time = Math.random() * 10000;
-    let phrase = randomInteger(0, 13);
-    console.log(lib[phrase]);
+    let phrase = randomInteger(0, a.length - 1);
+    console.log(a[phrase]);
 
-    setTimeout(wtf, time);
+    setTimeout(() => wtf(lib), time);
 }
 
 function randomInteger(min, max) {
@@ -28,4 +28,4 @@ function randomInteger(min, max) {
   return rand;
 }
 
-wtf();
+wtf(lib);
