@@ -8,21 +8,33 @@ function Slider(slider) {
 };
 
 Slider.prototype.init = function() {
-  let fragment = document.createDocumentFragment();
-  for (i = 0; i < this.itemsCount; i++) {
-    let clone = this.items[i].cloneNode(true);
-    fragment.appendChild(clone);
-  }
-  this.frame.insertBefore(fragment, this.items[0]);
+  let itemsInView = Math.ceil(this.slider.clientWidth / 580);
+  if (itemsInView < this.itemsCount) itemsInView = this.itemsCount;
 
-  for (i = 0; i < this.itemsCount; i++) {
-    let clone = this.items[i].cloneNode(true);
-    this.frame.appendChild(clone);
+  const fragmentPrev = document.createDocumentFragment();
+  const fragmentNext = document.createDocumentFragment();
+
+  let j = itemsInView % this.itemsCount ? this.itemsCount - (itemsInView % this.itemsCount) : 0;
+
+  for (let i = 0, n = 0; i < itemsInView; i++) {
+    let clone1 = this.items[j].cloneNode(true);
+    let clone2 = this.items[n].cloneNode(true);
+
+    fragmentPrev.appendChild(clone1);
+    fragmentNext.appendChild(clone2);
+
+    j = j < this.itemsCount - 1 ? j + 1 : 0;
+    n = n < this.itemsCount - 1 ? n + 1 : 0;
   }
 
-  for (let i = -this.itemsCount; i < this.itemsCount * 2; i++) {
-    this.items[i + this.itemsCount].style.position = "absolute";
-    this.items[i + this.itemsCount].style.left = `${i * 580}px`;
+
+  this.frame.insertBefore(fragmentPrev, this.items[0]);
+  this.frame.appendChild(fragmentNext);
+
+
+  for (let i = -itemsInView; i < this.itemsCount + itemsInView; i++) {
+    this.items[i + itemsInView].style.position = "absolute";
+    this.items[i + itemsInView].style.left = `${i * 580}px`;
   }
 };
 
@@ -175,19 +187,51 @@ Slider.prototype.wheel = function() {
   this.slider.addEventListener("wheel", onWheel);
 }
 
-
-const s = new Slider(".slider");
-s.init();
-s.drag(["mousedown", "mousemove", "mouseup"]);
-s.drag(["touchstart", "touchmove", "touchend"]);
-s.wheel();
-
-
-const next = document.querySelector(".slider__next");
-next.onclick = function(event) {
-  s.moveRight();
+Slider.prototype.animate = function() {
+  console.log(this.items.length);
+  for (let i = 0; i < this.items.length; i++) {
+    this.items[i].classList.add("preview--in-view");
+    if (i >= this.itemsCount) {
+      this.items[i].style.animationDelay = `${0.3 * (i - 3)}s`;
+    }
+  }
 }
-const prev = document.querySelector(".slider__prev");
-prev.onclick = function(event) {
-  s.moveLeft();
+
+
+if (window.matchMedia("(min-width: 768px) and (max-width: 1249px)").matches) {
+  const s = new Slider(".slider");
+  s.init();
+  s.drag(["mousedown", "mousemove", "mouseup"]);
+  s.drag(["touchstart", "touchmove", "touchend"]);
+  s.wheel();
+  s.animate();
+
+
+  const next = document.querySelector(".slider__next");
+  next.onclick = function(event) {
+    s.moveRight();
+  }
+  const prev = document.querySelector(".slider__prev");
+  prev.onclick = function(event) {
+    s.moveLeft();
+  }
+}
+
+if (window.matchMedia("(min-width: 1250px)").matches) {
+  const s = new Slider(".slider");
+  s.init();
+  s.drag(["mousedown", "mousemove", "mouseup"]);
+  // s.drag(["touchstart", "touchmove", "touchend"]);
+  s.wheel();
+  s.animate();
+
+
+  const next = document.querySelector(".slider__next");
+  next.onclick = function(event) {
+    s.moveRight();
+  }
+  const prev = document.querySelector(".slider__prev");
+  prev.onclick = function(event) {
+    s.moveLeft();
+  }
 }
