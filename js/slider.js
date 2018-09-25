@@ -80,7 +80,6 @@ Slider.prototype.moveTo = function() {
   this.position = Math.round(coords / 580);
 
   let shift = this.position * 580 - coords;
-  console.log(shift);
 
   if ( Math.abs(this.position) >= this.itemsCount) {
     this.position = this.position > 0 ? this.position - this.itemsCount :
@@ -157,7 +156,6 @@ Slider.prototype.drag = function(events) {
   };
 
   function move(position) {
-    console.log(position);
     elem.style.transform = `matrix(1,0,0,1,${position},0)`;
   };
 
@@ -226,7 +224,7 @@ if (window.matchMedia("(min-width: 768px) and (max-width: 1249px)").matches) {
     if (a) s.animate();
   });
 
-  isVisible(document.querySelector(".slider"));
+  // isVisible(document.querySelector(".slider"));
 }
 
 if (window.matchMedia("(min-width: 1250px)").matches) {
@@ -249,5 +247,5 @@ if (window.matchMedia("(min-width: 1250px)").matches) {
     if (a) s.animate();
   });
 
-  isVisible(document.querySelector(".slider"));
+  // isVisible(document.querySelector(".slider"));
 }

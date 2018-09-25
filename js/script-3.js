@@ -154,16 +154,12 @@ function doScrolling(elementY, duration) {
 }
 
 document.querySelector(".intro__scroll-down-button").onclick = function() {
-  console.log("click");
   const a = getElementY( document.querySelector(".works") );
-  console.log(a);
   doScrolling(a, 400);
 }
 
 document.querySelector(".works__scroll-down-button").onclick = function() {
-  console.log("click");
   const a = getElementY( document.querySelector(".about") );
-  console.log(a);
   doScrolling(a, 400);
 }
 
@@ -173,7 +169,6 @@ function isVisible(elem) {
 
   const topVisible = coords.top > 0 && coords.bottom < windowHeigt;
   const bottomVisible = coords.bottom < windowHeigt && coords.bottm > 0;
-  console.log([coords.top, topVisible || bottomVisible]);
 
   return topVisible || bottomVisible;
 }
@@ -182,3 +177,6 @@ window.addEventListener("scroll", function() {
   let a = isVisible(document.querySelector(".slider"));
   if (a) s.animate();
 });
+
+
+isVisible(document.querySelector(".slider"));
