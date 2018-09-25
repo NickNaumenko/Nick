@@ -225,6 +225,8 @@ if (window.matchMedia("(min-width: 768px) and (max-width: 1249px)").matches) {
     let a = isVisible(document.querySelector(".slider"));
     if (a) s.animate();
   });
+
+  isVisible(document.querySelector(".slider"));
 }
 
 if (window.matchMedia("(min-width: 1250px)").matches) {
@@ -246,4 +248,6 @@ if (window.matchMedia("(min-width: 1250px)").matches) {
     let a = isVisible(document.querySelector(".slider"));
     if (a) s.animate();
   });
+
+  isVisible(document.querySelector(".slider"));
 }
