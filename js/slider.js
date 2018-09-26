@@ -44,7 +44,7 @@ Slider.prototype.smoothScroll = function(finish) {
 
   let start = this.frame.getBoundingClientRect().left;
   let distance = Math.abs(finish - start);
-  let speed = 10;
+  let speed = 30;
   let time = distance / speed;
 
   function scroll() {
@@ -57,7 +57,7 @@ Slider.prototype.smoothScroll = function(finish) {
       setTimeout( () => {
         self.frame.style.transform = `translateX(${start}px)`;
         scroll();
-      }, 8);
+      }, 20);
     } else if (start > finish) {
       self.isAnimated = true;
 
@@ -67,7 +67,7 @@ Slider.prototype.smoothScroll = function(finish) {
       setTimeout( () => {
         self.frame.style.transform = `translateX(${start}px)`;
         scroll();
-      }, 8);
+      }, 20);
     } else  self.isAnimated = false;
   }
 
@@ -80,7 +80,6 @@ Slider.prototype.moveTo = function() {
   this.position = Math.round(coords / 580);
 
   let shift = this.position * 580 - coords;
-  console.log(shift);
 
   if ( Math.abs(this.position) >= this.itemsCount) {
     this.position = this.position > 0 ? this.position - this.itemsCount :
@@ -157,7 +156,6 @@ Slider.prototype.drag = function(events) {
   };
 
   function move(position) {
-    console.log(position);
     elem.style.transform = `matrix(1,0,0,1,${position},0)`;
   };
 
@@ -188,14 +186,15 @@ Slider.prototype.wheel = function() {
 }
 
 Slider.prototype.animate = function() {
-  console.log(this.items.length);
   for (let i = 0; i < this.items.length; i++) {
     this.items[i].classList.add("preview--in-view");
+
     if (i >= this.itemsCount) {
-      this.items[i].style.animationDelay = `${0.3 * (i - 3)}s`;
+      this.items[i].style.animationDelay = `${0.4 + 0.3 * (i - 3)}s`;
     }
   }
 }
+
 
 
 if (window.matchMedia("(min-width: 768px) and (max-width: 1249px)").matches) {
@@ -204,8 +203,6 @@ if (window.matchMedia("(min-width: 768px) and (max-width: 1249px)").matches) {
   s.drag(["mousedown", "mousemove", "mouseup"]);
   s.drag(["touchstart", "touchmove", "touchend"]);
   s.wheel();
-  s.animate();
-
 
   const next = document.querySelector(".slider__next");
   next.onclick = function(event) {
@@ -215,16 +212,20 @@ if (window.matchMedia("(min-width: 768px) and (max-width: 1249px)").matches) {
   prev.onclick = function(event) {
     s.moveLeft();
   }
+
+  window.addEventListener("scroll", function() {
+    let a = isVisible(document.querySelector(".slider"));
+    if (a) s.animate();
+  });
 }
+
+
 
 if (window.matchMedia("(min-width: 1250px)").matches) {
   const s = new Slider(".slider");
   s.init();
   s.drag(["mousedown", "mousemove", "mouseup"]);
-  // s.drag(["touchstart", "touchmove", "touchend"]);
   s.wheel();
-  s.animate();
-
 
   const next = document.querySelector(".slider__next");
   next.onclick = function(event) {
@@ -234,4 +235,9 @@ if (window.matchMedia("(min-width: 1250px)").matches) {
   prev.onclick = function(event) {
     s.moveLeft();
   }
+
+  window.addEventListener("scroll", function() {
+    let a = isVisible(document.querySelector(".slider"));
+    if (a) s.animate();
+  });
 }

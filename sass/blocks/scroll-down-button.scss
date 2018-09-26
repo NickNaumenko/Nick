@@ -1,0 +1,88 @@
+.scroll-down-button {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  margin-left: -15px;
+  display: block;
+  width: 30px;
+  height: 60px;
+  padding: 0 5px;
+
+  color: #000000;
+
+  border: none;
+  background-color: transparent;
+
+  outline: none;
+}
+
+.scroll-down-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15px;
+  display: block;
+  width: 2px;
+  height: 1px;
+
+  background-color: currentColor;
+
+  animation: scroll-down-button-animation 2s ease-in backwards infinite;
+  transform-origin: top bottom;
+}
+
+.scroll-down-button::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 13px;
+
+  display: block;
+  box-sizing: border-box;
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  background-color: currentColor;
+}
+
+.scroll-down-button:hover {
+  cursor: pointer;
+}
+
+.scroll-down-button:hover::before {
+  animation-duration: 0.5s;
+}
+
+.scroll-down-button:active::before {
+  animation: animation-down 0.3s both;
+}
+
+@keyframes scroll-down-button-animation {
+  0% {
+    transform: matrix(1, 0, 0, 1, 0, -30);
+  }
+
+  50% {
+    transform: matrix(1, 0, 0, 45, 0, 22);
+  }
+
+
+  100% {
+    transform: matrix(1, 0, 0, 1, 0, 45);
+  }
+}
+
+@keyframes animation-down {
+  0% {
+    transform: matrix(1, 0, 0, 1, 0, -5);
+  }
+
+  50% {
+    transform: matrix(1, 0, 0, 35, 0, 35);
+  }
+
+  100% {
+    transform: matrix(1, 0, 0, 1, 0, 55);
+  }
+}

@@ -123,3 +123,60 @@ window.onscroll = function() {
     pageHeader.classList.remove("page-header--invert");
   }
 };
+
+// --scroll down------------------
+
+
+function getElementY(elem) {
+  return elem.getBoundingClientRect().top + window.pageYOffset;
+}
+
+function doScrolling(elementY, duration) {
+  var startingY = window.pageYOffset;
+  var diff = elementY - startingY;
+  var start;
+
+  // Bootstrap our animation - it will get called right before next frame shall be rendered.
+  window.requestAnimationFrame(function step(timestamp) {
+    if (!start) start = timestamp;
+    // Elapsed milliseconds since start of scrolling.
+    var time = timestamp - start;
+    // Get percent of completion in range [0, 1].
+    var percent = Math.min(time / duration, 1);
+
+    window.scrollTo(0, startingY + diff * percent);
+
+    // Proceed with animation as long as we wanted it to.
+    if (time < duration) {
+      window.requestAnimationFrame(step);
+    }
+  })
+}
+
+document.querySelector(".intro__scroll-down-button").onclick = function() {
+  const a = getElementY( document.querySelector(".works") );
+  doScrolling(a, 400);
+}
+
+document.querySelector(".works__scroll-down-button").onclick = function() {
+  const a = getElementY( document.querySelector(".about") );
+  doScrolling(a, 400);
+}
+
+function isVisible(elem) {
+  const coords = elem.getBoundingClientRect();
+  const windowHeigt = document.documentElement.clientHeight;
+
+  const topVisible = coords.top > 0 && coords.bottom < windowHeigt;
+  const bottomVisible = coords.bottom < windowHeigt && coords.bottm > 0;
+
+  return topVisible || bottomVisible;
+}
+
+// window.addEventListener("scroll", function() {
+//   let a = isVisible(document.querySelector(".slider"));
+//   if (a) s.animate();
+// });
+
+
+isVisible(document.querySelector(".slider"));

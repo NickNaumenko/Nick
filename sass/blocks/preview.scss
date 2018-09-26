@@ -1,5 +1,5 @@
 .preview {
-  // position: relative;
+  position: relative;
 }
 
 .preview__wrapper {
@@ -76,7 +76,7 @@
   border: 3px solid #ffffff;
   border-radius: 25px;
 
-  animation: show-button 0.4s both;
+  animation: show-button 0.3s both;
 }
 
 .preview__button--view {
@@ -100,6 +100,10 @@
 }
 
 @media (min-width: $tablet-width) {
+  .preview {
+    transform: scaleX(0);
+  }
+
   .preview__description {
     height: 100%;
 
@@ -112,4 +116,20 @@
 
     text-shadow: 0 3px 5px rgba(#000000, 0.5);
   }
+}
+
+
+@keyframes slider-item-animate {
+  0% {
+    transform: translateX(-100px) scaleX(0);
+  }
+
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+}
+
+.preview--in-view {
+  animation: slider-item-animate 0.5s ease-in-out both;
+  transform-origin: left center;
 }
