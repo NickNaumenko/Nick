@@ -666,7 +666,7 @@ input[type="radio"].visually-hidden {
             box-sizing: border-box;
     height: 100vh;
     padding-bottom: 120px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
   .works__buttons-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -936,7 +936,7 @@ input[type="radio"].visually-hidden {
     padding: 5% 7%;
     line-height: 30px;
     letter-spacing: 1px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid blue;
     background-color: white; }
   .about__text-title {
     margin-bottom: 50px;
@@ -1079,8 +1079,8 @@ input[type="radio"].visually-hidden {
     max-width: 960px;
     min-height: 100vh;
     height: 100%;
-    border-left: 1px solid rgba(0, 0, 0, 0.2);
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
     overflow: hidden; }
     .v-lines::before {
       content: "";
@@ -1090,8 +1090,8 @@ input[type="radio"].visually-hidden {
       width: 33.33%;
       height: 100%;
       margin: 0 auto;
-      border-left: 1px solid rgba(0, 0, 0, 0.2);
-      border-right: 1px solid rgba(0, 0, 0, 0.2); }
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
+      border-right: 1px solid rgba(0, 0, 0, 0.1); }
   @-webkit-keyframes move-v-lines {
     0% { }
     100% {
