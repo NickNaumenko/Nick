@@ -77,13 +77,6 @@
   overflow: hidden;
 }
 
-.main-nav__social-link {
-  &:hover {
-    transition: 0.6s;
-    transform: rotateY(360deg);
-  }
-}
-
 .main-nav--opened {
   transform: translateY(0);
 

@@ -27,7 +27,8 @@
 
   background-color: currentColor;
 
-  animation: scroll-down-button-animation 2s ease-in backwards infinite;
+  animation: scroll-down-button-animation 2s 4s ease-in backwards infinite,
+   scroll-down-appearance 0s 4s both;
   transform-origin: top bottom;
 }
 
@@ -44,6 +45,8 @@
   height: 6px;
   transform: rotate(45deg);
   background-color: currentColor;
+
+  animation: scroll-down-appearance 0s 4s both;
 }
 
 .scroll-down-button:hover {
@@ -84,5 +87,15 @@
 
   100% {
     transform: matrix(1, 0, 0, 1, 0, 55);
+  }
+}
+
+@keyframes scroll-down-appearance {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

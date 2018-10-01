@@ -186,9 +186,13 @@ Slider.prototype.wheel = function() {
 }
 
 Slider.prototype.animate = function() {
-  for (let i = 0; i < this.items.length; i++) {
-    this.items[i].classList.add("preview--in-view");
+  this.slider.classList.add("slider--inview");
+  document.querySelector(".works__button--prev").classList
+    .add("works__button--prev-inview");
+  document.querySelector(".works__button--next").classList
+    .add("works__button--next-inview");
 
+  for (let i = 0; i < this.items.length; i++) {
     if (i >= this.itemsCount) {
       this.items[i].style.animationDelay = `${0.4 + 0.3 * (i - 3)}s`;
     }
@@ -197,34 +201,11 @@ Slider.prototype.animate = function() {
 
 
 
-if (window.matchMedia("(min-width: 768px) and (max-width: 1249px)").matches) {
+if (window.matchMedia("(min-width: 768px)").matches) {
   const s = new Slider(".slider");
   s.init();
   s.drag(["mousedown", "mousemove", "mouseup"]);
   s.drag(["touchstart", "touchmove", "touchend"]);
-  s.wheel();
-
-  const next = document.querySelector(".slider__next");
-  next.onclick = function(event) {
-    s.moveRight();
-  }
-  const prev = document.querySelector(".slider__prev");
-  prev.onclick = function(event) {
-    s.moveLeft();
-  }
-
-  window.addEventListener("scroll", function() {
-    let a = isVisible(document.querySelector(".slider"));
-    if (a) s.animate();
-  });
-}
-
-
-
-if (window.matchMedia("(min-width: 1250px)").matches) {
-  const s = new Slider(".slider");
-  s.init();
-  s.drag(["mousedown", "mousemove", "mouseup"]);
   s.wheel();
 
   const next = document.querySelector(".slider__next");

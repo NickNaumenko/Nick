@@ -24,33 +24,16 @@
 }
 
 .page-header__logo-link {
-  position: relative;
   color: inherit;
   line-height: 0;
-}
-
-.page-header__logo {
-  fill: currentColor;
-}
-
-.page-header__logo-text {
-  position: absolute;
-  top: 0;
-  left: 100%;
-
-  display: inline-block;
-  width: 0;
 
   overflow: hidden;
 }
 
-.page-header__logo-text-inner {
-  display: inline-block;
+.page-header__logo {
+  fill: currentColor;
 
-  font-size: 16px;
-  line-height: 16px;
-  transform: translateX(-100%);
-  transition: width, transform 1s;
+  animation: hide-logo 0.7s 4.2s ease both;
 }
 
 @media (min-width: $tablet-width) {
@@ -66,12 +49,14 @@
     padding-right: 0;
     padding-left: 0;
   }
+}
 
-  .page-header__logo-link:hover .page-header__logo-text {
-    width: auto;
+@keyframes hide-logo {
+  from {
+    transform: translateY(-40px);
+  }
 
-    .page-header__logo-text-inner {
-      transform: translateX(0);
-    }
+  to {
+    transform: translateY(0);
   }
 }

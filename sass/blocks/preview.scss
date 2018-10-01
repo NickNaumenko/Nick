@@ -129,7 +129,7 @@
   }
 }
 
-.preview--in-view {
+.slider--inview .preview {
   animation: slider-item-animate 0.5s ease-in-out both;
   transform-origin: left center;
 }

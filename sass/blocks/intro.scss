@@ -6,10 +6,8 @@
   background-image: url("../img/intro-back-mobile-1x.jpg");
   background-color: #000000;
   background-position: center;
-  // background-size: 768px auto;
+  background-size: 768px auto;
   background-repeat: no-repeat;
-
-  animation: scale-moon-mobile 1s  1s ease-in both;
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
     background-image: url("../img/intro-back-mobile-2x.jpg");
@@ -23,7 +21,7 @@
 
     background-color: black;
 
-    animation: show-intro 2.5s 1s ease-in-out both;
+    animation: show-intro 2s 3.5s ease-in-out both;
 
   }
 }
@@ -38,26 +36,6 @@
   }
 }
 
-@keyframes scale-moon-mobile {
-  0% {
-    background-size: 700px;
-  }
-
-  100% {
-    background-size: 768px;
-  }
-}
-
-@keyframes scale-moon-desktop {
-  0% {
-    background-size: 1100px;
-  }
-
-  100% {
-    background-size: 1250px;
-  }
-}
-
 .intro__wrapper {
   position: relative;
   height: 100%;
@@ -68,40 +46,54 @@
   top: 50%;
   transform: translateY(-50%);
 
-  margin: 0;
-  padding: 0;
+  width: 50%;
 
-  font-size: 60px;
-  line-height: 60px;
   color: #ffffff;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    display: block;
-    width: 100%;
-    height: 2px;
-
-    background-color: #ffffff;
-  }
 }
 
-.intro__surname {
-  font-size: 40px;
-  font-weight: 400;
+.intro__logo-name {
+  width: 100%;
+
+  color: white;
+
+  fill: none;
+  stroke-linecap: square;
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: dash 3s ease-in forwards,
+    filler 1.2s 3s forwards;
 }
 
 .intro__scroll-down-button {
   color: #ffffff;
 }
 
+@keyframes dash {
+  from {
+    stroke-dashoffset: 120;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes filler {
+  from {
+    fill: #fff;
+    fill-opacity: 0;
+  }
+
+  to {
+    fill: #fff;
+    fill-opacity: 1;
+  }
+}
+
 @media (min-width: $tablet-width) {
   .intro {
     background-image: url("../img/intro-back-desktop-1x.jpg");
     background-size: 1250px auto;
-
-    animation: scale-moon-desktop 2s  1s ease-in both;
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       background-image: url("../img/intro-back-desktop-2x.jpg");
@@ -114,16 +106,5 @@
 
   .intro__surname {
     font-size: 70px;
-  }
-}
-
-@media (min-width: $desktop-width) {
-  .intro__name {
-    font-size: 120px;
-    line-height: 120px;
-  }
-
-  .intro__surname {
-    font-size: 90px;
   }
 }

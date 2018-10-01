@@ -43,14 +43,20 @@
 
   &:nth-of-type(1) {
     top: 0;
+
+    animation: widen-line 0.5s 4s backwards;
   }
 
   &:nth-of-type(2) {
     top: 9px;
+
+    animation: widen-line 0.5s 4.1s backwards;
   }
 
   &:nth-of-type(3) {
     top: 18px;
+
+    animation: widen-line 0.5s 4.2s backwards;
   }
 }
 
@@ -102,5 +108,15 @@
 
   &--3::before {
     width: 42px;
+  }
+}
+
+@keyframes widen-line {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
   }
 }
