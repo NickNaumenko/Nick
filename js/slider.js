@@ -8,31 +8,47 @@ function Slider(slider) {
 };
 
 Slider.prototype.init = function() {
+  // let itemsInView = Math.ceil(this.slider.clientWidth / 580);
+  // if (itemsInView < this.itemsCount) itemsInView = this.itemsCount;
+
+  // const fragmentPrev = document.createDocumentFragment();
+  // const fragmentNext = document.createDocumentFragment();
+
+  // let j = itemsInView % this.itemsCount ? this.itemsCount - (itemsInView % this.itemsCount) : 0;
+
+  // for (let i = 0, n = 0; i < itemsInView; i++) {
+  //   let clone1 = this.items[j].cloneNode(true);
+  //   let clone2 = this.items[n].cloneNode(true);
+
+  //   fragmentPrev.appendChild(clone1);
+  //   fragmentNext.appendChild(clone2);
+
+  //   j = j < this.itemsCount - 1 ? j + 1 : 0;
+  //   n = n < this.itemsCount - 1 ? n + 1 : 0;
+  // }
+
+
+  // this.frame.insertBefore(fragmentPrev, this.items[0]);
+  // this.frame.appendChild(fragmentNext);
+
+
+  // for (let i = -itemsInView; i < this.itemsCount + itemsInView; i++) {
+  //   this.items[i + itemsInView].style.position = "absolute";
+  //   this.items[i + itemsInView].style.left = `${i * 580}px`;
+  // }
+
   let itemsInView = Math.ceil(this.slider.clientWidth / 580);
   if (itemsInView < this.itemsCount) itemsInView = this.itemsCount;
 
-  const fragmentPrev = document.createDocumentFragment();
-  const fragmentNext = document.createDocumentFragment();
+  for (let i = j = 0; i < itemsInView * 3 - this.itemsCount; i++) {
+    let clone = this.items[j].cloneNode(true);
+    console.log(this.items[j], j);
 
-  let j = itemsInView % this.itemsCount ? this.itemsCount - (itemsInView % this.itemsCount) : 0;
-
-  for (let i = 0, n = 0; i < itemsInView; i++) {
-    let clone1 = this.items[j].cloneNode(true);
-    let clone2 = this.items[n].cloneNode(true);
-
-    fragmentPrev.appendChild(clone1);
-    fragmentNext.appendChild(clone2);
-
-    j = j < this.itemsCount - 1 ? j + 1 : 0;
-    n = n < this.itemsCount - 1 ? n + 1 : 0;
+    this.frame.appendChild(clone);
+    j = j == this.itemsCount - 1 ? 0 : j + 1;
   }
 
-
-  this.frame.insertBefore(fragmentPrev, this.items[0]);
-  this.frame.appendChild(fragmentNext);
-
-
-  for (let i = -itemsInView; i < this.itemsCount + itemsInView; i++) {
+  for (let i = -itemsInView; i <  itemsInView * 2; i++) {
     this.items[i + itemsInView].style.position = "absolute";
     this.items[i + itemsInView].style.left = `${i * 580}px`;
   }
