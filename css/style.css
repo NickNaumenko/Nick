@@ -138,8 +138,8 @@ input[type="radio"].visually-hidden {
   width: 2px;
   height: 1px;
   background-color: currentColor;
-  -webkit-animation: scroll-down-button-animation 2s 6s ease-in backwards infinite, scroll-down-appearance 0s 6s both;
-          animation: scroll-down-button-animation 2s 6s ease-in backwards infinite, scroll-down-appearance 0s 6s both;
+  -webkit-animation: scroll-down-button-animation 2s 4s ease-in backwards infinite, scroll-down-appearance 0s 4s both;
+          animation: scroll-down-button-animation 2s 4s ease-in backwards infinite, scroll-down-appearance 0s 4s both;
   -webkit-transform-origin: top bottom;
           transform-origin: top bottom; }
 
@@ -156,8 +156,8 @@ input[type="radio"].visually-hidden {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   background-color: currentColor;
-  -webkit-animation: scroll-down-appearance 0s 6s both;
-          animation: scroll-down-appearance 0s 6s both; }
+  -webkit-animation: scroll-down-appearance 0s 4s both;
+          animation: scroll-down-appearance 0s 4s both; }
 
 .scroll-down-button:hover {
   cursor: pointer; }
@@ -259,8 +259,8 @@ input[type="radio"].visually-hidden {
 
 .page-header__logo {
   fill: currentColor;
-  -webkit-animation: hide-logo 1s 6s both;
-          animation: hide-logo 1s 6s both; }
+  -webkit-animation: hide-logo 0.7s 4.2s ease both;
+          animation: hide-logo 0.7s 4.2s ease both; }
 
 @media (min-width: 768px) {
   .page-header__controls {
@@ -336,16 +336,16 @@ input[type="radio"].visually-hidden {
           transform: rotate(0); }
   .menu-button__outer:nth-of-type(1) {
     top: 0;
-    -webkit-animation: widen-line 0.5s 6s backwards;
-            animation: widen-line 0.5s 6s backwards; }
+    -webkit-animation: widen-line 0.5s 4s backwards;
+            animation: widen-line 0.5s 4s backwards; }
   .menu-button__outer:nth-of-type(2) {
     top: 9px;
-    -webkit-animation: widen-line 0.5s 6.1s backwards;
-            animation: widen-line 0.5s 6.1s backwards; }
+    -webkit-animation: widen-line 0.5s 4.1s backwards;
+            animation: widen-line 0.5s 4.1s backwards; }
   .menu-button__outer:nth-of-type(3) {
     top: 18px;
-    -webkit-animation: widen-line 0.5s 6.2s backwards;
-            animation: widen-line 0.5s 6.2s backwards; }
+    -webkit-animation: widen-line 0.5s 4.2s backwards;
+            animation: widen-line 0.5s 4.2s backwards; }
 
 .menu-opened .menu-button__outer:nth-of-type(1) {
   -webkit-transform: translate(4px, 2px) rotate(45deg);
@@ -525,12 +525,6 @@ input[type="radio"].visually-hidden {
 .main-nav__social-item {
   overflow: hidden; }
 
-.main-nav__social-link:hover {
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  -webkit-transform: rotateY(360deg);
-          transform: rotateY(360deg); }
-
 .main-nav--opened {
   -webkit-transform: translateY(0);
           transform: translateY(0); }
@@ -560,9 +554,8 @@ input[type="radio"].visually-hidden {
   background-image: url("../img/intro-back-mobile-1x.jpg");
   background-color: #000000;
   background-position: center;
-  background-repeat: no-repeat;
-  -webkit-animation: scale-moon-mobile 1s  5s ease-in both;
-          animation: scale-moon-mobile 1s  5s ease-in both; }
+  background-size: 768px auto;
+  background-repeat: no-repeat; }
   @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
     .intro {
       background-image: url("../img/intro-back-mobile-2x.jpg"); } }
@@ -572,8 +565,8 @@ input[type="radio"].visually-hidden {
     width: 100%;
     height: 100%;
     background-color: black;
-    -webkit-animation: show-intro 2.5s 5s ease-in-out both;
-            animation: show-intro 2.5s 5s ease-in-out both; }
+    -webkit-animation: show-intro 2s 3.5s ease-in-out both;
+            animation: show-intro 2s 3.5s ease-in-out both; }
 
 @-webkit-keyframes show-intro {
   0% {
@@ -586,30 +579,6 @@ input[type="radio"].visually-hidden {
     opacity: 1; }
   100% {
     opacity: 0; } }
-
-@-webkit-keyframes scale-moon-mobile {
-  0% {
-    background-size: 700px; }
-  100% {
-    background-size: 768px; } }
-
-@keyframes scale-moon-mobile {
-  0% {
-    background-size: 700px; }
-  100% {
-    background-size: 768px; } }
-
-@-webkit-keyframes scale-moon-desktop {
-  0% {
-    background-size: 1100px; }
-  100% {
-    background-size: 1250px; } }
-
-@keyframes scale-moon-desktop {
-  0% {
-    background-size: 1100px; }
-  100% {
-    background-size: 1250px; } }
 
 .intro__wrapper {
   position: relative;
@@ -627,10 +596,11 @@ input[type="radio"].visually-hidden {
   width: 100%;
   color: white;
   fill: none;
+  stroke-linecap: square;
   stroke-dasharray: 120;
   stroke-dashoffset: 120;
-  -webkit-animation: dash 7s ease-in forwards, filler 3s 7s forwards;
-          animation: dash 7s ease-in forwards, filler 3s 7s forwards; }
+  -webkit-animation: dash 3s ease-in forwards, filler 1.2s 3s forwards;
+          animation: dash 3s ease-in forwards, filler 1.2s 3s forwards; }
 
 .intro__scroll-down-button {
   color: #ffffff; }
@@ -666,9 +636,7 @@ input[type="radio"].visually-hidden {
 @media (min-width: 768px) {
   .intro {
     background-image: url("../img/intro-back-desktop-1x.jpg");
-    background-size: 1250px auto;
-    -webkit-animation: scale-moon-desktop 2s  5s ease-in both;
-            animation: scale-moon-desktop 2s  5s ease-in both; } }
+    background-size: 1250px auto; } }
   @media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5), (min-width: 768px) and (min-resolution: 144dpi), (min-width: 768px) and (min-resolution: 1.5dppx) {
     .intro {
       background-image: url("../img/intro-back-desktop-2x.jpg"); } }
@@ -679,13 +647,6 @@ input[type="radio"].visually-hidden {
     line-height: 100px; }
   .intro__surname {
     font-size: 70px; } }
-
-@media (min-width: 1250px) {
-  .intro__name {
-    font-size: 120px;
-    line-height: 120px; }
-  .intro__surname {
-    font-size: 90px; } }
 
 .works {
   position: relative;
@@ -719,63 +680,70 @@ input[type="radio"].visually-hidden {
     height: 100vh;
     padding-bottom: 120px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-  .works__buttons-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    width: 100%;
-    padding-right: 15%;
-    padding-left: 15%; }
-  .works__button {
-    position: relative;
-    width: 20%;
-    height: 30px;
-    padding: 14px 0;
-    border: none;
-    background-color: #000000;
-    background-clip: content-box; }
-    .works__button--prev {
-      padding-left: 15px; }
-      .works__button--prev::before {
-        content: "";
-        position: absolute;
-        top: 9px;
-        left: -6px;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        width: 12px;
-        height: 12px;
-        border: 6px solid #000000;
-        border-left-width: 0px;
-        border-top-color: transparent;
-        border-bottom-color: transparent; }
-    .works__button--next {
-      padding-right: 15px; }
-      .works__button--next::before {
-        content: "";
-        position: absolute;
-        top: 9px;
-        right: -6px;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        width: 12px;
-        height: 12px;
-        border: 6px solid #000000;
-        border-right-width: 0px;
-        border-top-color: transparent;
-        border-bottom-color: transparent; }
   .works__slider {
     position: absolute;
     top: 50%;
     left: 0;
     margin-top: -170px;
-    width: 100%;
-    overflow: hidden; }
+    width: 100%; }
+  .works__buttons-container {
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    margin-left: -50px;
+    display: block;
+    width: 100px;
+    height: 100px; }
+  .works__button {
+    position: absolute;
+    top: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background-color: transparent;
+    outline: none; }
+    .works__button--prev {
+      left: 40px;
+      border: 10px solid #000000;
+      border-top-color: transparent;
+      border-right-color: transparent; }
+    .works__button--next {
+      right: 40px;
+      border: 10px solid #000000;
+      border-bottom-color: transparent;
+      border-left-color: transparent; }
+    .works__button:hover, .works__button:focus {
+      opacity: 0.6; }
+    .works__button:active {
+      opacity: 0.3; }
+  .works__button--prev-inview {
+    -webkit-animation: works__button--rotate 0.5s forwards, works__button--prev-move 0.6s 0.6s forwards;
+            animation: works__button--rotate 0.5s forwards, works__button--prev-move 0.6s 0.6s forwards; }
+  .works__button--next-inview {
+    -webkit-animation: works__button--rotate 0.5s forwards, works__button--next-move 0.6s 0.6s forwards;
+            animation: works__button--rotate 0.5s forwards, works__button--next-move 0.6s 0.6s forwards; }
+  @-webkit-keyframes works__button--rotate {
+    100% {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); } }
+  @keyframes works__button--rotate {
+    100% {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg); } }
+  @-webkit-keyframes works__button--prev-move {
+    100% {
+      left: 0; } }
+  @keyframes works__button--prev-move {
+    100% {
+      left: 0; } }
+  @-webkit-keyframes works__button--next-move {
+    100% {
+      right: 0; } }
+  @keyframes works__button--next-move {
+    100% {
+      right: 0; } }
   .works__list {
     padding-bottom: 30px;
     display: -webkit-box;
@@ -920,7 +888,7 @@ input[type="radio"].visually-hidden {
     -webkit-transform: translateX(0) scaleX(1);
             transform: translateX(0) scaleX(1); } }
 
-.preview--in-view {
+.slider--inview .preview {
   -webkit-animation: slider-item-animate 0.5s ease-in-out both;
           animation: slider-item-animate 0.5s ease-in-out both;
   -webkit-transform-origin: left center;
@@ -1105,6 +1073,10 @@ input[type="radio"].visually-hidden {
   display: block;
   width: 30px;
   height: 30px; }
+  .socials__link:hover {
+    opacity: 0.6; }
+  .socials__link:active {
+    opacity: 0.3; }
 
 .socials__icon {
   width: 30px;
@@ -1114,7 +1086,8 @@ input[type="radio"].visually-hidden {
 .slider {
   position: relative;
   width: 100%;
-  min-height: 370px; }
+  min-height: 370px;
+  overflow: hidden; }
 
 .v-lines {
   display: none; }
